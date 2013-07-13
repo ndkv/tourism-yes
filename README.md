@@ -48,6 +48,6 @@ Automated workflow (future)
 
 * Get BG extract through XAPI
 * Extract buildings with osmosis OR directly with XAPI
-* Convert to GML using [osm2shp.py](http://wiki.openstreetmap.org/wiki/Converting_OSM_to_GML) > convert to shapefiles using ogr2ogr OR insert in PostGIS with osmosis or [osm2postgresql](http://wiki.openstreetmap.org/wiki/Osm2postgresql)
+* Convert footprints to GML using [osm2shp.py](http://wiki.openstreetmap.org/wiki/Converting_OSM_to_GML) > convert to shapefiles using ogr2ogr OR insert in PostGIS with osmosis, osm2pgsql, imposm, [osm2postgresql](http://wiki.openstreetmap.org/wiki/Osm2postgresql), etc.
 * Intersect building footprints with Natura2000 using e.g. Shapely OR in database using spatial functions e.g. ST_Intersects/ST_Within
 * Output intersections and display with headless Tilemill > mbtiles > MapProxy OR mapnik > MapProxy
