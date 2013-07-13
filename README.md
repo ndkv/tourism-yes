@@ -7,6 +7,9 @@ Visualising Bulgarian buildings that are contained in the Natura2000 zones.
 Getting data
 ================
 
+Open Street Map
+---------------
+
 Get an OSM extract of Bulgaria through OSM's eXtended API as
 
     curl --location --globoff "http://www.overpass-api.de/api/xapi?*[bbox=22.394248233556354,41.235366211879473,28.633039945734783,44.213393561835581]" -o bg.osm
@@ -15,6 +18,13 @@ Get only buildings as
 
     curl --location --globoff "http://www.overpass-api.de/api/xapi?way[building=yes][bbox=22.394248233556354,41.235366211879473,28.633039945734783,44.213393561835581]" -o bg_buildings.osm
     
+    
+Natura2000
+----------
+    
+Full 2012 dataset: http://www.eea.europa.eu/data-and-maps/data/natura-2
+
+Partial (missing GIS data) 2013 dataset: http://www.eea.europa.eu/data-and-maps/data/natura-3
 
 Filtering data
 ==============
