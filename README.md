@@ -32,7 +32,7 @@ Filtering data
 Extract buildings from OSM extract using osmosis (handy when downloading data from e.g. http://metro.teczno.com/#sofia or similar)
 
     osmosis --read-xml bg.osm --tf accept-ways building=yes --write-xml bg_buildings.osm
-    
+        
 
 Manual workflow (current)
 =========================
@@ -46,8 +46,21 @@ The plugin generates three layers: points, lines and polygons. The latter contai
 Automated workflow (future)
 ===========================
 
-* Get BG extract through XAPI
-* Extract buildings with osmosis OR directly with XAPI
-* Convert footprints to GML using [osm2shp.py](http://wiki.openstreetmap.org/wiki/Converting_OSM_to_GML) > convert to shapefiles using ogr2ogr OR insert in PostGIS with osmosis, osm2pgsql, imposm, [osm2postgresql](http://wiki.openstreetmap.org/wiki/Osm2postgresql), etc.
-* Intersect building footprints with Natura2000 using e.g. Shapely OR in database using spatial functions e.g. ST_Intersects/ST_Within
-* Output intersections and display with headless Tilemill > mbtiles > MapProxy OR mapnik > MapProxy
+Get BG extract through XAPI
+
+Extract buildings with osmosis OR directly with XAPI
+
+Insert in PostGIS with osm2pgsql.
+
+Intersect building footprints with Natura2000 in database using spatial functions e.g. ST_Intersects/ST_Within as
+    
+    SELECT osm_id, tourism, way 
+    FROM planet_osm_polygon, ogrgeojson 
+    WHERE ST_Intersects(planet_osm_polygon.way, ogrgeojson.wkb_geometry);
+
+Output intersections and display with headless Tilemill > mbtiles > MapProxy OR mapnik > MapProxy
+
+
+Simplify Natura2000 geometries
+
+    SELECT sitetype, ST_Simplify(wkb_geometry, 0.000025) FROM ogrgeojson
