@@ -62,6 +62,12 @@ Insert Natura2000 polygon in PostGIS using ```ogr2ogr```
 
     ogr2ogr -f PostgreSQL PG:"dbname='' host='' \
     user='' password=''" natura2000_bg.geojson
+    
+Map code abbreviations to zone types e.g.
+
+    UPDATE protected_zones
+    SET zone_class = "parks"
+    WHERE desig_abbr = "BG5";
 
 Intersect building footprints with Natura2000 in database using spatial functions e.g. ST_Intersects/ST_Within as
     
