@@ -1,0 +1,17 @@
+#buildings {
+    [zoom < 17] {
+        marker-clip:false;
+        marker-allow-overlap: false;
+        marker-allow-overlap: true;
+        marker-file: url(https://dl.dropboxusercontent.com/u/13840490/building-24.png);
+        marker-width: 30;
+        
+        [tourism != null] {
+            marker-file: url(https://dl.dropboxusercontent.com/u/13840490/park-24.png);
+        }
+        
+        [desig_abbr='BG06'][tourism = null] {
+            marker-file: url(https://dl.dropboxusercontent.com/u/13840490/roadblock-96-white.png);
+        }
+    }
+}

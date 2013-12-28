@@ -1,0 +1,42 @@
+#nature_areas {
+  
+    [zoom <= 8 ] {
+          polygon-opacity: 0; 
+            }
+              
+                [ zoom >= 9 ] {
+                    polygon-opacity: 0.6;
+                        line-width: 1;
+                            line-color: #FFF;
+                                line-opacity: 1;
+                                  }
+                                    
+                                      [ zoom >= 17 ] {
+                                          polygon-opacity: 0.3;    
+                                            }
+                                              
+                                                [ zoom >= 19 ] {
+                                                    polygon-opacity: 0.1;
+                                                      line-width: 3;    
+                                                        
+                                                          }
+                                                          }
+
+                                                          #nature_areas[desig_abbr="BG06"] {
+                                                             polygon-fill: #A6CEE3;
+                                                             }
+                                                             #nature_areas[desig_abbr="BG03"] {
+                                                                polygon-fill: #1F78B4;
+                                                                }
+                                                                #nature_areas[desig_abbr="BG01"] {
+                                                                   polygon-fill: #B2DF8A;
+                                                                   }
+                                                                   #nature_areas[desig_abbr="BG04"] {
+                                                                      polygon-fill: #33A02C;
+                                                                      }
+                                                                      #nature_areas[desig_abbr="BG05"] {
+                                                                         polygon-fill: #FB9A99;
+                                                                         }
+                                                                         #nature_areas[desig_abbr="BG02"] {
+                                                                            polygon-fill: #E31A1C;
+                                                                            }

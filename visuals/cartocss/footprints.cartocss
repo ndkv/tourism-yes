@@ -1,0 +1,9 @@
+#buildings {
+    [ zoom >= 17 ] {
+        polygon-opacity: 0.1;
+        polygon-fill: black;
+        line-opacity:1;
+        line-width: 3;
+        line-color: black;
+    }
+}
