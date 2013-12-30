@@ -1,4 +1,4 @@
-[tourism=yes](htpp://apps.ndvk.nl/tourism=yes)
+[tourism=yes](http://apps.ndkv.nl/tourism=yes)
  visualises buildings located in Bulgarian parks, reserves and protected nature zones. Building footprints are fetched from OpenStreetMap and intersected with a number of Bulgarian nature reserves. The footprints are categorized based on their ```tourism``` tag value. 
 
 The goal is to show the locations and extent of nature reserves in Bulgaria, show and verify the presence and locations of tourist buildings and spot dodgy buildings i.e. non-touristic buildings in nature parks such as private chalets, mass tourism hotels on mountain peaks, etc.
