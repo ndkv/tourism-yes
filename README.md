@@ -5,12 +5,20 @@ The goal is to show the locations and extent of nature reserves in Bulgaria, sho
 
 Additionally, viewers are invited to contribute to OSM by correcting mistakes, amending existing objects and/or adding new ones. 
 
+
+Data
+====
+
+Buildings footprints - [OpenStreetMap](www.openstreetmap.org/about) (see _Roll your own section_ for extraction instructions)
+
+[Nature reserve areas](http://pdbase.government.bg/zpo/bg/index.jsp) - Bulgarian [Executive Environment Agency](http://eea.government.bg/en)
+
+Roll your own - get data
+========================
 *The remainder of this document describes how to map an area of your choice*. The instructions are written for Ubuntu 12.04 and assume you have a working PostGIS configuration (scroll to the bottom if you need help setting it up). The result of the described process is a list of buildings that lie within nature areas that you can host on MapBox / CartoDB / GeoServer, etc. 
 
-Roll your own - getting data
-============================
-Buildings - OpenStreetMap
--------------------------
+Building footprints
+-------------------
 Building data can come from anywhere; OpenStreetMap is great for this project as Bulgarian open data isn't a rich as, say, [Dutch data](http://citysdk.waag.org/buildings/).
 
 There are numerous ways of getting OSM data. Here we'll use the [Overpass API](http://wiki.openstreetmap.org/wiki/Overpass_API)'s [XAPI endpoint](http://wiki.openstreetmap.org/wiki/Overpass_API/XAPI_Compatibility_Layer). We get everything that OSM knows about Bulgaria by quering the API with ```curl``` as
@@ -21,8 +29,8 @@ The API is quite sophisticated and allows for numerous filters and quries. For i
 
     curl --location --globoff "http://overpass.osm.rambler.ru/cgi/xapi?way[building=yes][bbox=22.394248233556354,41.235366211879473,28.633039945734783,44.213393561835581]" -o bg_buildings.osm
 
-Nature reserves - Natura2000
-----------------------------
+Nature reserves
+---------------------
 The most probable place to get information about nature reserves in your area is to look for your province/region/country's [spatial data portal](http://www.geo.admin.ch/internet/geoportal/en/home.html). If you can not find such a thing have a look at the areas designated in the European Union's [Natura2000](http://en.wikipedia.org/wiki/Natura_2000) directive:
     
 [Natura2000 2 dataset](http://www.eea.europa.eu/data-and-maps/data/natura-2)
@@ -31,8 +39,8 @@ The most probable place to get information about nature reserves in your area is
 
 [Natura2000 4 dataset](http://www.eea.europa.eu/data-and-maps/data/natura-4)
 
-Managing data - PostGIS
-=======================
+Store and manage data
+=====================
 PostGIS is an extension to PostgreSQL that handles spatial data. Storing the OSM extract in a spatial database allows us to perform spatial queries and analyses such as bounding box searches, intersections, area calculations, coordinate transformations, etc. all of which are indexed and hence super fast. 
 
 
