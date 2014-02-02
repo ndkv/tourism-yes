@@ -1,0 +1,16 @@
+#map { 
+    margin-top: 5px; 
+    width: 100%;
+    height: 500px;
+}
+
+.heading { margin-top: 10px; }
+
+/* bootstrap messes with CartoDB's infoWindow
+src: https://groups.google.com/forum/#!msg/cartodb/TpbD9ETJPKk/y7YqUBiyp_kJ */
+.cartodb-popup-content-wrapper, 
+.cartodb-popup-content {
+    box-sizing: content-box; 
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+}

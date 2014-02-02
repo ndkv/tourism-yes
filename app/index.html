@@ -5,17 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <link href="bootstrap-light/css/bootstrap.min.css" rel="stylesheet">
-        
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <style>
-        .map { margin-top: 5px; }
-        .heading { margin-top: 10px; }
-        </style
+
+        <!-- CartoDB -->
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+        <![endif]-->
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <div class="container">
@@ -29,7 +31,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <iframe class="map" width='100%' height='500' frameborder='0' src='http://simeon.cartodb.com/viz/46345544-6d62-11e3-99da-5404a6a69006/embed_map?title=false&description=false&search=true&shareable=false&cartodb_logo=false&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1%7C1%7C1&sql=&sw_lat=41.068490953987734&sw_lon=20.093721086139794&ne_lat=45.001233138041684&ne_lon=30.640596086139794'></iframe>
+                    <div id="map" width='100%' height='500'></div>
                 </div>
             </div>
             <div class="row">
@@ -50,6 +52,8 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
+        <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="app.js"></script>
     </body>
 </html>
