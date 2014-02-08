@@ -36,15 +36,19 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <h4>Legend</h4>
-                    <div><img style="width: 25px;" src="img/roadblock.png"> - Buildings with an empty tourism tag located in <em>protected areas</em></div>
-                    <div><img style="width: 25px;" src="img/building.png"> - Buildings with an empty tourism tag located in <em>parks</em>, <em>reserves</em> or <em>natural monuments</em></div>
-                    <div><img style="width: 25px;" src="img/park.png"> - Buildings with a non-empty tourism tag</div>
+					<div id="legend">
+						<h4>Legend</h4>
+						<div><img style="width: 25px;" src="img/roadblock.png"> - Buildings with an empty tourism tag located in <em>protected areas</em></div>
+						<div><img style="width: 25px;" src="img/building.png"> - Buildings with an empty tourism tag located in <em>parks</em>, <em>reserves</em> or <em>natural monuments</em></div>
+						<div><img style="width: 25px;" src="img/park.png"> - Buildings with a non-empty tourism tag</div>
+					</div>
                 </div>
                 <div class="col-sm-6">
-                    <h4>About</h4>
-                    <p>This map shows buildings from <a href="http://www.openstreetmap.org">OpenStreetMap</a> that are located within Bulgarian nature reserves. Buildings are categorised based on their OSM <a href="http://wiki.openstreetmap.org/wiki/Key:tourism">tourism</a> tag value. Zoom in to see the reserves and building footprints. See the map in fullscreen <a href="http://simeon.cartodb.com/viz/46345544-6d62-11e3-99da-5404a6a69006/embed_map?title=false&description=false&search=true&shareable=false&cartodb_logo=false&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1%7C1%7C1&sql=&sw_lat=41.068490953987734&sw_lon=20.093721086139794&ne_lat=45.001233138041684&ne_lon=30.640596086139794">here</a>.</p>
-                    <p>Crafted by <a href="http://www.twitter.com/simeonnedkov">@simeonnedkov</a>. Code hosted on github, map made with CartoDB. <a href="https://www.mapbox.com/maki/">Maki icons</a> by MapBox. Hat tip to <a href="http://www.twitter.com/antitoxic">@antitoxic</a> and <a href="http://www.twitter.com/yurukov">@yurukov</a> for inspiration and data.</p>
+                    <div id="about">
+						<h4>About</h4>
+						<p>This map shows buildings from <a href="http://www.openstreetmap.org">OpenStreetMap</a> that are located within Bulgarian nature reserves. Buildings are categorised based on their OSM <a href="http://wiki.openstreetmap.org/wiki/Key:tourism">tourism</a> tag value. Zoom in to see the reserves and building footprints.</p>
+						<p>Crafted by <a href="http://www.twitter.com/simeonnedkov">@simeonnedkov</a>. Code hosted on github, map made with CartoDB. <a href="https://www.mapbox.com/maki/">Maki icons</a> by MapBox. Hat tip to <a href="http://www.twitter.com/antitoxic">@antitoxic</a> and <a href="http://www.twitter.com/yurukov">@yurukov</a> for inspiration and data.</p>
+					</div>
                 </div>
             </div>
         </div>
@@ -52,8 +56,9 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+		<script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="app.js"></script>
+		<script src="src/leaflet.zoomfs.js"></script>
+        <script src="src/app.js"></script>
     </body>
 </html>

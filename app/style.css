@@ -6,6 +6,11 @@
 
 .heading { margin-top: 10px; }
 
+/* icon for fullscreen button */
+.leaflet-control-fullscreen {
+	background-image: url(img/square-24.png);
+}
+
 /* bootstrap messes with CartoDB's infoWindow
 src: https://groups.google.com/forum/#!msg/cartodb/TpbD9ETJPKk/y7YqUBiyp_kJ */
 .cartodb-popup-content-wrapper, 
