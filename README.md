@@ -16,6 +16,10 @@ and/or
 
     http://simeon.cartodb.com/api/v2/sql?q=SELECT count(*) FROM nature_areas
     
+Getting all buildings with an empty ```tourism``` tag is done as
+
+    http://simeon.cartodb.com/api/v2/sql?q=SELECT * FROM buildings WHERE tourism ISNULL    
+    
 CartoDB runs on PostGIS which means you can do nifty geo stuff like
 
     http://simeon.cartodb.com/api/v2/sql?q=SELECT ST_Area(the_geom) FROM nature_areas LIMIT 10
