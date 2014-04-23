@@ -6,16 +6,44 @@ The goal is to show the locations and extent of nature reserves in Bulgaria, sho
 Additionally, viewers are invited to contribute to OSM by correcting mistakes, amending existing objects and/or adding new ones. 
 
 
-Data
-====
+CartoDB API
+-----------
+The application is powered by [CartoDB](http://www.cartodb.com) which means that you get a [powerful SQL API](http://developers.cartodb.com/documentation/sql-api.html) for free. You can query the ```buildings``` and ```nature_areas``` tables by firing a GET request at 
 
-Buildings footprints - [OpenStreetMap](www.openstreetmap.org/about) (see _Roll your own section_ for extraction instructions)
+    http://simeon.cartodb.com/api/v2/sql?q=SELECT count(*) FROM buildings
 
-[Nature reserve areas](http://pdbase.government.bg/zpo/bg/index.jsp) - Bulgarian [Executive Environment Agency](http://eea.government.bg/en)
+and/or
 
-Roll your own - get data
-========================
+    http://simeon.cartodb.com/api/v2/sql?q=SELECT count(*) FROM nature_areas
+    
+CartoDB runs on PostGIS which means you can do nifty geo stuff like
+
+    http://simeon.cartodb.com/api/v2/sql?q=SELECT ST_Area(the_geom) FROM nature_areas LIMIT 10
+    
+The SQL API can handle GET and POST request which allows you to retrieve data through e.g. jQuery as
+
+    $.getJSON('http://simeon.cartodb.com/api/v2/sql/?q=SELECT count(*) FROM Buildings', function(data) {
+        $.each(data.rows, function(key, val) {
+        // do something!
+      });
+    });
+    
+Or through [CartoDB.js](http://developers.cartodb.com/documentation/cartodb-js.html#sec-3-16) as 
+
+    cartodb.createLayer(map, 'http://simeon.cartodb.com/api/v2/viz/46345544-6d62-11e3-99da-5404a6a69006/viz.json', function(layer) {
+        layer.createSubLayer({
+            sql: 'SELECT * FROM buildings',
+            cartocss: '#layer { marker-fill: red; }'
+        });
+    }).addTo(map);
+
+
+Roll your own
+=============
 *The remainder of this document describes how to map an area of your choice*. The instructions are written for Ubuntu 12.04 and assume you have a working PostGIS configuration (scroll to the bottom if you need help setting it up). The result of the described process is a list of buildings that lie within nature areas that you can host on MapBox / CartoDB / GeoServer, etc. 
+
+The buildings footprints come from [OpenStreetMap](www.openstreetmap.org/about) whereas the [nature reserve areas](http://pdbase.government.bg/zpo/bg/index.jsp) come from the Bulgarian [Executive Environment Agency](http://eea.government.bg/en).
+
 
 Building footprints
 -------------------
