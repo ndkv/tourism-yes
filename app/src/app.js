@@ -4,9 +4,14 @@ function run() {
     var map = new L.map('map', {zoomControl: false});
 	map.setView([42.5657, 25.5123], 7);
 	
+	/*
 	L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
           attribution: 'Stamen'
     }).addTo(map);
+	*/
+	
+	var g = new L.Google('HYBRID');
+	map.addLayer(g);
 	
 	cartodb.createLayer(map, 'http://simeon.cartodb.com/api/v2/viz/46345544-6d62-11e3-99da-5404a6a69006/viz.json')
 	.addTo(map)
