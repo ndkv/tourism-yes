@@ -19,3 +19,8 @@ src: https://groups.google.com/forum/#!msg/cartodb/TpbD9ETJPKk/y7YqUBiyp_kJ */
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
 }
+
+#legend div {
+    cursor: pointer;
+
+}
