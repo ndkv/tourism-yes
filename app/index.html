@@ -4,7 +4,7 @@
         <title>tourism=yes - mapping tourism buildings in Bulgaria</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
-        <link href="bootstrap-light/css/bootstrap.min.css" rel="stylesheet">
+        <link href="lib/bootstrap-light/css/bootstrap.min.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -17,7 +17,7 @@
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
         <![endif]-->
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="resources/style.css" />
     </head>
     <body>
         <div class="container">
@@ -38,9 +38,10 @@
                 <div class="col-sm-6">
 					<div id="legend">
 						<h4>Legend</h4>
-						<div id="suspicious"><img style="width: 25px;" src="img/roadblock.png"> - Buildings with an empty tourism tag located in <em>protected areas</em></div>
-						<div id="undefined"><img style="width: 25px;" src="img/building.png"> - Buildings with an empty tourism tag located in <em>parks</em>, <em>reserves</em> or <em>natural monuments</em></div>
-						<div id="park"><img style="width: 25px;" src="img/park.png"> - Buildings with a non-empty tourism tag</div>
+                        <span id="filter">click an image to toggle filters</span>
+						<div id="suspicious"><img src="resources/img/roadblock.png"> - Buildings with an empty tourism tag located in <em>protected areas</em></div>
+						<div id="undefined"><img src="resources/img/building.png"> - Buildings with an empty tourism tag located in <em>parks</em>, <em>reserves</em> or <em>natural monuments</em></div>
+						<div id="park"><img src="resources/img/park.png"> - Buildings with a non-empty tourism tag</div>
 					</div>
                 </div>
                 <div class="col-sm-6">
@@ -58,9 +59,9 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
 		<script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-		<script src="src/leaflet.zoomfs.js"></script>
-        <script src="src/app.js"></script>
-		<script src="src/leaflet-google.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="lib/leaflet.zoomfs.js"></script>
+        <script src="scripts/app.js"></script>
+		<script src="lib/leaflet-google.js"></script>
     </body>
 </html>

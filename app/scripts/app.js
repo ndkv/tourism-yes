@@ -1,18 +1,23 @@
 window.onload = run;
 
 function filter(layer) {
+
+	$.get("resources/cartocss/markers.cartocss", function(data) {
+		layer.setCartoCSS(data);
+	});
+
 	var query = "SELECT ST_centroid(the_geom) as the_geom, ST_centroid(the_geom_webmercator) as the_geom_webmercator, cartodb_id, desig_abbr, tourism, name, osm_id FROM buildings";
 	var previous = null;
 
 	var queries = {
 		"suspicious": query + " WHERE desig_abbr = 'BG06' AND tourism is null",
 		"undefined": query + " WHERE desig_abbr != 'BG06' AND tourism is null",
-		"park": query + " WHERE desig_abbr = 'BG06' AND tourism is not null"
+		"park": query + " WHERE tourism is not null"
 	}
 
 	$("#legend div").click(function(e) {
 		var selection = $(this).attr("id");
-		//removes filter whenever we click again on the same filter button
+		//removes filter when we click again on the same filter button
 		if (previous === selection) {
 			layer.setSQL(query);
 			previous = null;
@@ -40,42 +45,31 @@ function run() {
 	.addTo(map)
 	.on('done', function (layer) {
 	    layer.setInteraction(true);
-		
-		//layer.on('featureOver', function(e, pos, latlng, data) {
-		//	cartodb.log.log(e, pos, latlng, data);
-		//});
-		
+			
 		layer.on('error', function(err) {
 			cartodb.log.log('error: ' + err);
 		});
 
+		//get marker layer
 		filter(layer.getSubLayer(2));
 
 	}).on('error', function() {
 		cartodb.log.log("some error occured");
 	});
 	
-
 	//fullscreen control
 	var zoomFS = new L.Control.ZoomFS();
 	map.addControl(zoomFS);
 	
 	//catch fullscreen event and hide the legend and about divs
-	//(they otherwise stay visible on top of the map)
+	//(they otherwise remain visible on top of the map)
 	map.on('enterFullscreen', function() {
-		//console.log('fullscreen');
-		document.getElementById("legend").style.display = 'none';
-		document.getElementById("about").style.display = 'none';
+		$("#legend").css('display','none');
+		$("#about").css('display','none');
 	});
 	
 	map.on('exitFullscreen', function() {
-		document.getElementById("legend").style.display = 'block';
-		document.getElementById("about").style.display = 'block';
+		$("#legend").css('display', 'block');
+		$("#about").css('display', 'block');
 	});
-
-
-	//filters
-
-
-
 }

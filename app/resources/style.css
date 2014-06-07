@@ -22,5 +22,13 @@ src: https://groups.google.com/forum/#!msg/cartodb/TpbD9ETJPKk/y7YqUBiyp_kJ */
 
 #legend div {
     cursor: pointer;
+}
 
+#legend img {
+	width: 25px;
+}
+
+#filter {
+	font-size: 0.9em;
+	font-style: italic;
 }
